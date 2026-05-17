@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Products - GWG Nigeria Ltd</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> | <a href="/products">Products</a>
+    </nav>
+
+    <div class="container">
+        <h1>Industrial Equipment Catalog</h1>
+        
+        <div class="product-detail-grid">
+            <div class="product-item">
+                <img src="{{ url_for('static', filename='images/ice-block-machine.jpg') }}" alt="Ice Block Machine">
+                <h2>Ice Block Making Machines</h2>
+                <p>Our heavy-duty ice block machines are designed for the Nigerian climate, featuring fast freezing technology and high-density insulation.</p>
+                <ul>
+                    <li>Capacity: 20 to 1000 blocks per day</li>
+                    <li>Stainless steel construction</li>
+                    <li>Low power consumption</li>
+                </ul>
+            </div>
+
+            <div class="product-item">
+                <img src="{{ url_for('static', filename='images/industrial-cold-room.jpg') }}" alt="Cold Room">
+                <h2>Industrial Cold Rooms</h2>
+                <p>Perfect for pharmaceutical, food, and beverage storage.</p>
+                <ul>
+                    <li>Temperature range: +10°C to -40°C</li>
+                    <li>Automated temperature control</li>
+                    <li>Modular panel design</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

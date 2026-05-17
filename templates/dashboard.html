@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GWG Manager Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 40px; }
+        .admin-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #008751; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { background: #008751; color: white; }
+        .status-badge { background: #e8f5e9; color: #008751; padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="admin-card">
+        <h1><i class="fas fa-user-shield"></i> GWG Inquiry Management</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Customer Name</th>
+                    <th>Phone (WhatsApp)</th>
+                    <th>Email</th>
+                    <th>Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inquiry in inquiries %}
+                <tr>
+                    <td>{{ inquiry.date_posted.strftime('%Y-%m-%d') }}</td>
+                    <td><strong>{{ inquiry.name }}</strong></td>
+                    <td><a href="https://wa.me/{{ inquiry.phone }}">{{ inquiry.phone }}</a></td>
+                    <td>{{ inquiry.email }}</td>
+                    <td>{{ inquiry.details }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href="/">Back to Website</a>
+    </div>
+</body>
+</html>
+
+<div style="text-align: right;">
+    <a href="/logout" style="color: red;">Logout</a>
+</div>
+
+<th>Action</th>
+
+<td>
+    <a href="/delete/{{ inquiry.id }}" onclick="return confirm('Delete this record?')" style="color: red;">Delete</a>
+</td>s
